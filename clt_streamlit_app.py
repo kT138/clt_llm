@@ -4,6 +4,12 @@ import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 
+st.set_page_config(
+    page_title="Central Limit Theorem Demo",
+    page_icon="📊",
+    layout="wide"
+)
+
 # ===== Japanese font auto-detection =====
 def _set_japanese_font():
     candidates = [

@@ -219,7 +219,7 @@ with col1:
         if np.isfinite(emp_std) and emp_std>0:
             ax.plot(xs, normal_pdf(xs, emp_mean, emp_std), linewidth=2, linestyle="--", label="Empirical normal fit")
 
-        title = f"Distribution of sample means（n={int(n)}, trials={int(trials)}）\n" 
+        title = f"Distribution of sample means (n={int(n)}, trials={int(trials)})\n" 
         ax.set_title(title)
         ax.set_xlabel("Sample means")
         ax.set_ylabel("Density")
@@ -281,5 +281,5 @@ with st.expander("元の確率変数 X の分布を表示"):
 
     ax0.set_title(f"Underlying distribution (10,000 samples for display)")
     ax0.set_xlabel("x")
-    ax0.set_ylabel("density")
+    ax0.set_ylabel("Density")
     st.pyplot(fig0, clear_figure=True)

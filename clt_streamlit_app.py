@@ -64,7 +64,7 @@ with st.sidebar:
     # Sample size & trials: number inputs
     n = st.number_input("標本サイズ n", min_value=1, max_value=50000, value=30, step=1)
     trials = st.number_input("トライアル回数", min_value=1, max_value=100000, value=1000, step=1)
-    seed = st.number_input("乱数シード（累積用）", min_value=0, max_value=2_147_483_647, value=0, step=1)
+    seed = st.number_input("乱数シード", min_value=0, max_value=2_147_483_647, value=0, step=1)
 
     # Distribution parameter sliders
     params = {}

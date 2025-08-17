@@ -240,11 +240,11 @@ with col2:
     if np.isfinite(emp_std):
         st.write(f"- 標本平均の経験標準偏差: **{emp_std:.6g}**")
     if theo_mean is not None:
-        st.write(f"- 理論平均 μ: **{theo_mean:.6g}**")
+        st.write(f"- 理論平均: **{theo_mean:.6g}**")
     else:
-        st.write("- 理論平均 μ: **定義されない**（例：コーシー、パレート α≤1）")
+        st.write("- 理論平均: **定義されない**（例：コーシー、パレート α≤1）")
     if (theo_std is not None):
-        st.write(f"- 理論的な標本平均の標準偏差: **{theo_std:.6g}**  （Var(X̄)=Var(X)/n）")
+        st.write(f"- 理論的な標本平均の標準偏差: **{theo_std:.6g}**  ")
         st.caption("i.i.d.（または2群混合でも分散有限）なら、n を増やすと理論曲線は急速に尖ります。")
     else:
         st.caption("この分布/パラメータでは分散が有限でないため、理論正規カーブは表示しません。")

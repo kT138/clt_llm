@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
+import japanize_matplotlib
 
 # ===== Japanese font auto-detection =====
 def _set_japanese_font():

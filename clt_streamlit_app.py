@@ -3,7 +3,6 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
-import japanize_matplotlib
 
 # ===== Japanese font auto-detection =====
 def _set_japanese_font():
@@ -199,9 +198,9 @@ with col1:
             ax.set_xlim(float(mean_xmin), float(mean_xmax))
         ax.hist(finite, **hist_kwargs)
 
-        ax.axvline(emp_mean, linestyle="--", linewidth=2, label="経験平均")
+        ax.axvline(emp_mean, linestyle="--", linewidth=2, label="Empirical mean")
         if theo_mean is not None:
-            ax.axvline(theo_mean, linestyle="-", linewidth=2, label="理論平均 μ")
+            ax.axvline(theo_mean, linestyle="-", linewidth=2, label="Theoretical mean")
 
         # X-range for curves
         if clip_mean and (mean_xmax > mean_xmin):
@@ -214,20 +213,20 @@ with col1:
 
         # Theoretical normal curve (if mean & variance are finite)
         if (theo_mean is not None) and (theo_std is not None) and (theo_std>0):
-            ax.plot(xs, normal_pdf(xs, theo_mean, theo_std), linewidth=2, label="理論正規")
+            ax.plot(xs, normal_pdf(xs, theo_mean, theo_std), linewidth=2, label="Theoretical normal")
 
         # Empirical normal fit (fit to means)
         if np.isfinite(emp_std) and emp_std>0:
-            ax.plot(xs, normal_pdf(xs, emp_mean, emp_std), linewidth=2, linestyle="--", label="経験正規フィット")
+            ax.plot(xs, normal_pdf(xs, emp_mean, emp_std), linewidth=2, linestyle="--", label="Empirical normal fit")
 
-        title = f"標本平均の分布（n={int(n)}, trials={int(trials)}）\n" + _dist_label(dist_name, params)
+        title = f"Distribution of sample means（n={int(n)}, trials={int(trials)}）\n" 
         ax.set_title(title)
-        ax.set_xlabel("標本平均（各トライアル）")
-        ax.set_ylabel("density")
+        ax.set_xlabel("Sample means")
+        ax.set_ylabel("Density")
         ax.legend()
         st.pyplot(fig, clear_figure=True)
     else:
-        st.info("有限なサンプルがありません。")
+        st.info("")
 
 with col2:
     st.subheader("数値サマリー")
@@ -280,7 +279,7 @@ with st.expander("元の確率変数 X の分布を表示"):
         ax0.set_xlim(float(view_xmin), float(view_xmax))
     ax0.hist(x_view, **view_hist_kwargs)
 
-    ax0.set_title(_dist_label(dist_name, params) + f" のサンプル分布（表示用に {Nview} 点）")
+    ax0.set_title(f"Underlying distribution (10,000 samples for display)")
     ax0.set_xlabel("x")
     ax0.set_ylabel("density")
     st.pyplot(fig0, clear_figure=True)
